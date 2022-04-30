@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="bands"></ul>
+    <script>
+      const bands = [
+        "The plot in you",
+        "The Devils wears prada",
+        "Pierce the veil",
+        "Norma Jean",
+        "The Bled",
+        "Say Anything",
+        "The Midway State",
+        "We came as Romans",
+        "Counterparts",
+        "Oh, sleeper",
+        "A skylit Dirver",
+        "Anywhere But Here",
+        "An old Dog",
+      ];
+
+      function strip(bandsName) {
+        return bandsName.replace(/^(a |the |an )/i, "").trim();
+      }
+      const sortedBands = bands.sort((a, b) => (strip(a) > strip(b) ? 1 : -1));
+
+      document.querySelector("#bands").innerHTML = sortedBands
+        .map((band) => `<li>${band}</li>`)
+        .join("");
+
+      console.log(sortedBands);
+    </script>
+  </body>
+</html>
